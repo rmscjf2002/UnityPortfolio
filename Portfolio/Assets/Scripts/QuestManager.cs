@@ -56,11 +56,11 @@ public class QuestManager : MonoBehaviour
  
     public string CheckQuest()
     {
-        if (questList[questId].questCnt == player.questCnt)
+        if (questList[questId].questCnt <= player.questCnt)
         {
             player.money += questList[questId].questReward.money;
             player.exp += questList[questId].questReward.exp;
-            player.questFinish = false;
+            //player.questFinish = false;
             NextQuest();
         }
         return questList[questId].questName;

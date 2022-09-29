@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
     public int questCnt;
     public int npcId;
     public bool isTalk;
-    public bool questFinish;
+//    public bool questFinish;
 
 
     // Animation

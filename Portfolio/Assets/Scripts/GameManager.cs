@@ -63,6 +63,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Text moneyText;
 
+    public Item[] invenName;
+    //public int[] invenIdx;
+    public int[] invenCnt;
+
     // Panel
     [SerializeField]
     GameObject gamePanel;
@@ -77,6 +81,8 @@ public class GameManager : MonoBehaviour
 
     // Quest
     int questId;
+    int managerQuestId;
+    int questCnt;
     int npcId;
 
     // Boss // Boss방 입장시 boss에 할당
@@ -133,10 +139,13 @@ public class GameManager : MonoBehaviour
     // Settings
     [SerializeField]
     GameObject settingsGroup;
+    
 
 
     void Update()
     {
+
+
 
         // Settings
         SettingOn();
@@ -149,6 +158,8 @@ public class GameManager : MonoBehaviour
         health = player.health;
         money = player.money;
         questId = player.questId;
+        managerQuestId = questManager.questId;
+        questCnt = player.questCnt;
         npcId = player.npcId;
 
 
@@ -172,7 +183,7 @@ public class GameManager : MonoBehaviour
             questContents.text = "-";
 
         else
-            questContents.text = player.questCnt + " / " + questManager.questList[questId].questCnt.ToString();
+            questContents.text = player.questCnt + " / " + questManager.questList[questManager.questId].questCnt.ToString();
 
 
     }
@@ -357,6 +368,8 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("Health", player.health);
         PlayerPrefs.SetInt("Money", player.money);
         PlayerPrefs.SetInt("QuestId", player.questId);
+        PlayerPrefs.SetInt("ManagerQuestId", questManager.questId);
+        PlayerPrefs.SetInt("QuestCnt", player.questCnt);
         PlayerPrefs.SetInt("Exp", player.exp);
     }
 
@@ -383,6 +396,8 @@ public class GameManager : MonoBehaviour
         player.health = PlayerPrefs.GetInt("Health");
         player.money = PlayerPrefs.GetInt("Money");
         player.questId = PlayerPrefs.GetInt("QuestId");
+        questManager.questId = PlayerPrefs.GetInt("ManagerQuestId");
+        player.questCnt = PlayerPrefs.GetInt("QuestCnt");
         player.exp = PlayerPrefs.GetInt("Exp");
 
 
@@ -402,9 +417,9 @@ public class GameManager : MonoBehaviour
 
     public void Action()
     {
-        if (questManager.questList[questId].questCnt == player.questCnt && questManager.questList[questId].questCnt != 0)
+        if (questManager.questList[questId].questCnt <= player.questCnt && questManager.questList[questId].questCnt != 0)
         {
-            player.questFinish = true;
+           // player.questFinish = true;
             Talk(npcId + 1);
         }
         else
@@ -499,6 +514,7 @@ public class GameManager : MonoBehaviour
             settingsGroup.SetActive(false);
         }
     }
+
 
 
 }

@@ -7,7 +7,7 @@ using UnityEngine;
 // ScriptableObject로 생성 (에셋)
 public class Item : ScriptableObject
 {
-
+  
     public enum ItemType // 아이템 유형
     {
         Equipment, // 장비

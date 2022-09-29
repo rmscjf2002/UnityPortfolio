@@ -139,42 +139,45 @@ public class Boss : Enemy
     // 공격패턴 생각
     public IEnumerator Think()
     {
-        isLook = true;
-        yield return new WaitForSeconds(0.1f);
-
-        int ranAction = Random.Range(0, 6);
-
-        switch(ranAction)
+        if (!isDead)
         {
-            case 0:
-            case 1:
-            case 2:
-                if (!isMelee)
-                {
-                    StartCoroutine(Think());
-                    break;
-                }
-              
-                StartCoroutine("BasicAttack");
-                break;
-            case 3:
-                if(isMelee || diff < 65)
-                {
-                    StartCoroutine(Think());
-                    break;
-                }
-                StartCoroutine("RockShot");
-                break;
-            case 4:
-            case 5:
-                if (!isMelee)
-                {
-                    StartCoroutine(Think());
-                    break;
-                }
-                StartCoroutine("TailAttack");
-                break;
+            isLook = true;
+            yield return new WaitForSeconds(0.1f);
 
+            int ranAction = Random.Range(0, 6);
+
+            switch (ranAction)
+            {
+                case 0:
+                case 1:
+                case 2:
+                    if (!isMelee)
+                    {
+                        StartCoroutine(Think());
+                        break;
+                    }
+
+                    StartCoroutine("BasicAttack");
+                    break;
+                case 3:
+                    if (isMelee || diff < 65)
+                    {
+                        StartCoroutine(Think());
+                        break;
+                    }
+                    StartCoroutine("RockShot");
+                    break;
+                case 4:
+                case 5:
+                    if (!isMelee)
+                    {
+                        StartCoroutine(Think());
+                        break;
+                    }
+                    StartCoroutine("TailAttack");
+                    break;
+
+            }
         }
     }
     

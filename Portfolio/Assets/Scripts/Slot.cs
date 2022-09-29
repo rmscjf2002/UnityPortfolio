@@ -170,4 +170,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
             DragSlot.instance.dragSlot.ClearSlot();
 
     }
+
+
 }
