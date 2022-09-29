@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Floor
+  - Melee
+  - Shield
+  - EnemySpawnPos
+  - Enemy
+  - EnemyAtk
+  - PlayerDie
+  - Item
+  - Wall
+  - BossAtk
+  - RockAtk
+  - PlayerDeffend
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Enemy
+  - Wall
+  - EnemyAtk
+  - Player
+  - EnemyDie
+  - PlayerDie
+  - Item
+  - RemoveRock
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
