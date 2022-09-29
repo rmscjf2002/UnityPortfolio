@@ -105,6 +105,7 @@ Youtube로 Unity를 다시 한번 복습한 후 만들게 되었다.
 > - Player의 피격데미지를 Ammo에 비례하게 설정
 
 <br/>
+
 ## 영상링크
 https://drive.google.com/file/d/13haigi8zLy12m0-QseVdqYkAX1K9zUHB/view?usp=sharing
 
