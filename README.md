@@ -109,4 +109,4 @@ Youtube로 Unity를 다시 한번 복습한 후 만들게 되었다.
 ## 영상링크
 https://youtu.be/3PsVFbm03W8
 ## PDF
-
+https://drive.google.com/file/d/1gBjAKHpYxyFXiYzx_YqUdEndbpj3SNLd/view?usp=sharing
