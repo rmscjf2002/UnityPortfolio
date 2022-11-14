@@ -106,7 +106,12 @@ Youtube로 Unity를 다시 한번 복습한 후 만들게 되었다.
 
 <br/>
 
+#### 1114
+> - 인벤토리 아이템 XML로 저장, 불러오기 구현
+
+<br/>
+
 ## 영상링크
 https://youtu.be/3PsVFbm03W8
-## PDF
+## 기술서PDF링크
 https://drive.google.com/file/d/1gBjAKHpYxyFXiYzx_YqUdEndbpj3SNLd/view?usp=sharing
