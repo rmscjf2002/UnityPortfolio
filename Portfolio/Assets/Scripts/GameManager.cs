@@ -139,7 +139,11 @@ public class GameManager : MonoBehaviour
     // Settings
     [SerializeField]
     GameObject settingsGroup;
-    
+
+
+    // Inven Manager
+    [SerializeField]
+    InventoryManager invenManager;
 
 
     void Update()
@@ -371,6 +375,8 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt("ManagerQuestId", questManager.questId);
         PlayerPrefs.SetInt("QuestCnt", player.questCnt);
         PlayerPrefs.SetInt("Exp", player.exp);
+
+        invenManager.SaveData();
     }
 
     //  Game Start Screen
@@ -402,6 +408,8 @@ public class GameManager : MonoBehaviour
 
 
         GameStart();
+
+        invenManager.Load();
 
     }
 

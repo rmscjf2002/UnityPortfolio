@@ -76,6 +76,8 @@ public class Inventory : MonoBehaviour
         {
             if(slots[i].item == null)
             {
+                if (slots[i].itemCnt > 999)
+                    continue;
                 slots[i].AddItem(_item, cnt);
                 return;
             }

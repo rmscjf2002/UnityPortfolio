@@ -25,8 +25,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     [SerializeField]
     RectTransform quickSlotRect; // 퀵슬롯 영역
 
-     [SerializeField]
-     RectTransform baseRect; // InventoryBase의 Rect정보
+    [SerializeField]
+    RectTransform baseRect; // InventoryBase의 Rect정보
 
 
     [SerializeField]
@@ -34,6 +34,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     [SerializeField]
     int quickSlotidx; // 퀵슬롯 인덱스
 
+
+    // Inventory Manager
+    [SerializeField]
+    InventoryManager invenManager;
     
 
     // 이미지의 알파값 조절
@@ -50,6 +54,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         item = _item;
         itemCnt = cnt;
         itemImage.sprite = item.itemImage;
+
 
         if(item.itemType != Item.ItemType.Equipment)
         {
@@ -70,7 +75,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     {
         itemCnt += cnt;
         textCnt.text = itemCnt.ToString();
-
+        invenManager.SaveData();
         if (itemCnt <= 0)
             ClearSlot();
     }
@@ -128,13 +133,17 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     public void OnEndDrag(PointerEventData eventData)
     {
       
-        /*if(DragSlot.instance.transform.localPosition.x < baseRect.xMin || DragSlot.instance.transform.localPosition.x > baseRect.xMax
-          || DragSlot.instance.transform.localPosition.y < baseRect.yMin || DragSlot.instance.transform.localPosition.y > baseRect.yMax)*/
-        if (!((DragSlot.instance.transform.localPosition.x > baseRect.rect.xMin && DragSlot.instance.transform.localPosition.x < baseRect.rect.xMax
-          && DragSlot.instance.transform.localPosition.y > baseRect.rect.yMin && DragSlot.instance.transform.localPosition.y < baseRect.rect.yMax)
-          || (DragSlot.instance.transform.localPosition.x > quickSlotRect.rect.xMin && DragSlot.instance.transform.localPosition.x < quickSlotRect.rect.xMax
-          && DragSlot.instance.transform.localPosition.y + baseRect.transform.localPosition.y > quickSlotRect.rect.yMin+ quickSlotRect.transform.localPosition.y 
-          && DragSlot.instance.transform.localPosition.y + baseRect.transform.localPosition.y < quickSlotRect.rect.yMax + quickSlotRect.transform.localPosition.y)))
+
+        if (!((DragSlot.instance.transform.localPosition.x > baseRect.rect.xMin 
+            && DragSlot.instance.transform.localPosition.x < baseRect.rect.xMax
+          && DragSlot.instance.transform.localPosition.y > baseRect.rect.yMin 
+          && DragSlot.instance.transform.localPosition.y < baseRect.rect.yMax)
+          || (DragSlot.instance.transform.localPosition.x > quickSlotRect.rect.xMin 
+          && DragSlot.instance.transform.localPosition.x < quickSlotRect.rect.xMax
+          && DragSlot.instance.transform.localPosition.y + 
+          baseRect.transform.localPosition.y > quickSlotRect.rect.yMin+ quickSlotRect.transform.localPosition.y 
+          && DragSlot.instance.transform.localPosition.y + 
+          baseRect.transform.localPosition.y < quickSlotRect.rect.yMax + quickSlotRect.transform.localPosition.y)))
         {
             if (DragSlot.instance.dragSlot != null)
                 inputNumber.Call();

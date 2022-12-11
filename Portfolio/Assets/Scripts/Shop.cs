@@ -40,7 +40,7 @@ public class Shop : MonoBehaviour
         int price = itemPrice[idx] * n;
         player.money -= price;
     }
-
+   
 
     // Trigger 함수
     private void OnTriggerEnter(Collider other)
